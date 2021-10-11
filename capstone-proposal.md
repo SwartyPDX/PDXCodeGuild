@@ -1,4 +1,4 @@
-#Fun Neighbors
+# Fun Neighbors
 ## Overview
 
 ## Features
@@ -8,6 +8,6 @@
 
 ## Data Model
 
-##Schedule
+## Schedule
 
-###MVP
+### MVP
