@@ -11,26 +11,41 @@ A place to organize events between verified neighbors around me. Site is private
 - Particepant requirements / recommendations
   - equipment, supplies, age, cost, etc.
 - photo and video sharing through 3rd party links
+- Avoid person option
 
 ### User Stories
 #### pick up event
 User wants to do something today on the spur of the moment and wants to see if anyone in their group/neighborhood wants to go too.
+- Alerts users with similar interests that there is an immediate opportunity by push/sms with details and a yes no response option
 
 #### planned out event
 User is planning an event further out and wants to let neighbors RSVP and add to their calendar
+- Any user creates event.
+- notification created with approximation of time and place.
+- Aligned interest users are notified of event.
+- event is added to overall event list.
+- Users who meet the qualifications can join the event.
+- Users joining event are shown exact details.
+
+
 
 #### interest builder
 A user has an idea they think would be fun and want to collecct a group to start doing it with. e.g. want to play a tabletop game but don't have a set time and place.
+- Any user can create desired activity.
+- Any User that is interested can show their interest anonymously, simple interest count.
+- Any user that sees interest is high enough can propose some times and places for the group to consider or ask for a pickup event
+- Pick up or planned event is created.
 
 ## Data Model
 - Users
-  - family based witth kid/adult/pet profiles.
+  - family based with kid/adult/pet profiles.
 - Events
 - Mods
-- Groups
+- Groups/Ideas
   - interest, mens/womens, age, business, etc
 
 
 ## Schedule
 
 ### MVP
+Interest groups with calendar.
