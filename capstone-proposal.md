@@ -48,4 +48,4 @@ A user has an idea they think would be fun and want to collecct a group to start
 ## Schedule
 
 ### MVP
-Interest groups with calendar.
+Interest groups with messaging.
