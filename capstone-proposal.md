@@ -59,8 +59,8 @@ Users that particepated in event can share links to photos and videos posted on 
 Week 1
 - Skeleton
 - Start Data models and API ties
-  1 User/Mod
-  2 Ideas
+  1. User/Mod
+  2. Ideas
 
 Week 2
 - Continue data models and tie to API
