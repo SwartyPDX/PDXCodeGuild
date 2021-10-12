@@ -56,13 +56,15 @@ Users that particepated in event can share links to photos and videos posted on 
 
 
 ## Schedule
-week 1
+Week 1
 - Skeleton
 - Start Data models and API ties
   1 User/Mod
   2 Ideas
-week 2
+
+Week 2
 - Continue data models and tie to API
+
 Week 3
 - Cry
 - Debug
