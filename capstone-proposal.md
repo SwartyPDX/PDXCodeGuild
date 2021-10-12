@@ -66,8 +66,10 @@ Week 2
 - Continue data models and tie to API
 
 Week 3
-- Cry
 - Debug
+- Debug more
+- Weep
+- Debug again
 - Make pretty
 ### MVP
-Interest groups with event alerts.
+Idea groups with event alerts.
