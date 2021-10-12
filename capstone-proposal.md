@@ -19,7 +19,7 @@ User wants to do something today on the spur of the moment and wants to see if a
 - Alerts users with similar interests that there is an immediate opportunity by push/sms with details and a yes no response option
 
 #### planned out event
-User is planning an event further out and wants to let neighbors RSVP and add to their calendar
+User is planning an event further out so that neighbors RSVP and add to their calendar
 - Any user creates event.
 - notification created with approximation of time and place.
 - Aligned interest users are notified of event.
@@ -30,7 +30,7 @@ User is planning an event further out and wants to let neighbors RSVP and add to
 
 
 #### interest builder
-A user has an idea they think would be fun and want to collecct a group to start doing it with. e.g. want to play a tabletop game but don't have a set time and place.
+A user has an idea they think would be fun and want to collect a group to start doing it with. e.g. want to play a tabletop game but don't have a set time and place.
 - Any user can create desired activity.
 - Any User that is interested can show their interest anonymously, simple interest count.
 - Any user that sees interest is high enough can propose some times and places for the group to consider or ask for a pickup event
