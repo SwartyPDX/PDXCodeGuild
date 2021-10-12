@@ -11,6 +11,8 @@ A place to organize events between verified neighbors around me. Site is private
 - Particepant requirements / recommendations
   - equipment, supplies, age, cost, etc.
 - photo and video sharing through 3rd party links
+- Interest vs profile search
+- No direct or non public communication.
 - Avoid person option
 
 ### User Stories
@@ -36,6 +38,9 @@ A user has an idea they think would be fun and want to collect a group to start 
 - Any user that sees interest is high enough can propose some times and places for the group to consider or ask for a pickup event
 - Pick up or planned event is created.
 
+#### Memories
+Users that particepated in event can share links to photos and videos posted on insta and google photos, etc.
+
 ## Data Model
 - Users
   - family based with kid/adult/pet profiles.
@@ -44,8 +49,23 @@ A user has an idea they think would be fun and want to collect a group to start 
 - Groups/Ideas
   - interest, mens/womens, age, business, etc
 
+## APIs
+- notication
+  - text,mms,push,etc. 
+- Calendar (prob Google)
+
 
 ## Schedule
-
+week 1
+- Skeleton
+- Start Data models and API ties
+  1 User/Mod
+  2 Ideas
+week 2
+- Continue data models and tie to API
+Week 3
+- Cry
+- Debug
+- Make pretty
 ### MVP
-Interest groups with messaging.
+Interest groups with event alerts.
