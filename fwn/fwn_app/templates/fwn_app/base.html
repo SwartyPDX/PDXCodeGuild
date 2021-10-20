@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>FWN</title>
+  <link rel="icon" href="{% static 'bones.ico' %}">
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<body  class= "green lighten-3">
+    <nav class="blue-grey darken-4" role="navigation">
+      <div class=" container nav-wrapper">
+          {% if user.is_authenticated %}
+          <p class="container brand-logo center grey-text text-lighten-3">{{ user.username }}</p>
+          <a href="{% url 'users:logout' %}" class="right grey-text text-lighten-3">Logout</a>
+          {% else %}
+      <ul class="right">
+        <li><a href="{% url 'users:login' %}" class="right grey-text text-lighten-3">Login   </a></li>
+        <li><a href="{% url 'users:register' %}" class="right grey-text text-lighten-3">Register</a></li>
+      </ul>
+        {% endif %}
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">menu</i></a>
+        <!-- For large Screens -->
+        <ul class="left hide-on-med-and-down white-text"> 
+          <li><a href="/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">home</i></a></li>
+          <li><a href="/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">calendar_today</i></a></li>
+          <li><a href="/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">account_circle</i></a></li>
+        </ul>
+        <!-- For Smll Screens -->
+        <ul id="nav-mobile" class="sidenav grey-text text-lighten-3">
+          <li><a href="/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">home</i></a></li>
+          <li><a href="/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">calendar_today</i></a></li>
+          <li><a href="/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">account_circle</i></a></li>
+        </ul>
+      </div>
+    </nav>
+
+
+    {% block content %}
+    {% endblock %}
+    <footer class="page-footer blue-grey lighten-4">
+        <div class="footer-copyright">
+          <div class="container grey-text text-darken-4">
+          Made by <a class="grey-text text-darken-4" href="#">Swarty</a>
+          </div>
+        </div>
+      </footer>
+<script src="{% static 'materialize.js' %}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.parallax');
+  var instances = M.Parallax.init(elems);
+});
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
+</script>
+
+</body>
+</html>
