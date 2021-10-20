@@ -1,0 +1,11 @@
+{% extends 'fwn_app/base.html' %}
+{% load static %}
+{% block content %}
+Current Year: {{current_year}}
+<div class='container'>
+  {{ cal|safe}}
+</div>
+
+
+</main>
+{% endblock %}

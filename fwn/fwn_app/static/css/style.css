@@ -59,3 +59,5 @@ footer.page-footer {
 .opacity {
   opacity: .1;
 }
+form {
+  max-width: 400px;}
