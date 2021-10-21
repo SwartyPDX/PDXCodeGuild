@@ -27,10 +27,15 @@ class Event(models.Model):
     title = models.CharField('Title', help_text='Title',max_length=40)
     desc = models.CharField('Description', help_text='Description',blank=True, null=True, max_length=400)
     date = models.DateField('Day of the event', help_text='Day of the event', )
-    start = models.TimeField('Start time', help_text='Start time', default='12:00')
+    # start = models.TimeField('Start time', help_text='Start time', default='12:00')
+    start_time = models.DateTimeField(default=datetime.now())
+    end_time = models.DateTimeField(default=datetime.now())
     rsvp = models.ManyToManyField('Member','event', blank=True)
-    def __str__(self):
-        return self.title
+
+    @property
+    def get_html_url(self):
+        url = reverse('cal:event_edit', args=(self.id,))
+        return f'<a href="{url}"> {self.title} </a>'
 
 class Tag(models.Model):
     name = models.CharField(max_length=15)
