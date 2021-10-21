@@ -2,7 +2,49 @@
 {% load static %}
 {% block content %}
 <main>
-
+    <div id="index-banner" class="parallax-container">
+        <div class="section no-pad-bot">
+            <div class="container right ">
+            <br><br>
+            <h1 class="header left grey-text text-darken-4">Fun with Neighbors</h1>
+            <div class="row center">
+                <h5 class="header col s12 grey-text text-darken-4 left-align">Caring People, Strong Community</h5>
+            </div>
+            <div class="row center">
+                <h2 class="header col s12 grey-text text-darken-4 left-align">Register</h2>
+                </div>
+            <br><br>
+            </div>
+        </div>
+        <div class="parallax opacity"><img src="{% static 'threefriend.png' %}" alt="3 friends"></div>
+    </div>
+    <form action="{% url 'users:register' %}" method="POST" class="container center">
+        {% csrf_token %}
+        <label class = "grey-text text-darken-4 left-align" for="username">username:</label>
+        <input type="text" id="username" name="username">
+        <br />
+        <label class = "grey-text text-darken-4 left-align" for="password"1>password:</label>
+        <input type="password" id="password1" name="password1">
+        <br />
+        <label class = "grey-text text-darken-4 left-align" for="password2">password again:</label>
+        <input type="password" id="password2" name="password2">
+        <br />
+        <button class="btn-large waves-effect waves-light left grey" type="submit">login</button>
+    </form>
 
 </main>
 {% endblock %}
+
+
+
+<!-- 
+<form action="{% url 'users:login' %}" method="POST" class="container center">
+	{% csrf_token %}
+	<label class = "grey-text text-darken-4 left-align" for="username"><h5>username:</h5></label>
+	<input type="text" id="username" name="username">
+	<br />
+	<label class = "grey-text text-darken-4 left-align" for="password"><h5>password:</h5></label>
+	<input type="password" id="password" name="password">
+	<br />
+	<button class="btn-large waves-effect waves-light left grey" type="submit">login</button>
+</form> -->
