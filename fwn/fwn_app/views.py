@@ -2,10 +2,11 @@ from django.shortcuts import render, get_object_or_404,redirect
 from django.urls import reverse, reverse_lazy
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
-from calendar import HTMLCalendar, month_name
+from calendar import HTMLCalendar, calendar, month_name
 from datetime import datetime , timedelta, date
 from django.utils.safestring import mark_safe
 from django.views import generic
+import calendar
 
 from .models import *
 from .utils import Calendar
@@ -56,8 +57,8 @@ def event(request, event_id=None):
     form = EventForm(request.POST or None, instance=instance)
     if request.POST and form.is_valid():
         form.save()
-        return HttpResponseRedirect(reverse('cal:calendar'))
-    return render(request, 'cal/event.html', {'form': form})
+        return HttpResponseRedirect(reverse('fwn_app:calendar'))
+    return render(request, 'fwn_app/event.html', {'form': form})
 
 
 
@@ -80,31 +81,31 @@ def index(request):
 def household(request, profile):
     return render(request, "fwn_app/house.html",
     {
-        'house':House,
+        'house':House.objects.all(),
         
     })
    
 
-def calendar(request, year, month):
-    uuid= User
-    month = month.capitalize()
-    month_num = list(month_name).index(month)
-    month_num=int(month_num)
-    now= datetime.now()
-    current_year=now.year
-    cal= HTMLCalendar().formatmonth(year, month_num)
-    return render(request, "fwn_app/cal.html",
-    {
-        "year" : year,
-        "month" : month,
-        "uuid" : uuid,
-        "cal":cal,
-        "current_year":current_year
-    })
+# def calendar(request, year, month):
+#     uuid= User
+#     month = month.capitalize()
+#     month_num = list(month_name).index(month)
+#     month_num=int(month_num)
+#     now= datetime.now()
+#     current_year=now.year
+#     cal= HTMLCalendar().formatmonth(year, month_num)
+#     return render(request, "fwn_app/cal.html",
+#     {
+#         "year" : year,
+#         "month" : month,
+#         "uuid" : uuid,
+#         "cal":cal,
+#         "current_year":current_year
+#     })
 
 def idealist(request):
     return render(request, "fwn_app/idea.html",
     {
-        'idea':Idea,
+        'idea':Idea.objects.all(),
         
     })

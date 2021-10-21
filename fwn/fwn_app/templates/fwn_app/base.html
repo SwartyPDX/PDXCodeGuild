@@ -14,10 +14,15 @@
 
 <body  class= "green lighten-3">
     <nav class="blue-grey darken-4" role="navigation">
-      <div class=" container nav-wrapper">
+      <div class="nav-wrapper">
+        <p class="brand-logo center grey-text text-lighten-3">{% block title %}{% endblock %}</p>
           {% if user.is_authenticated %}
-          <p class="container brand-logo center grey-text text-lighten-3">{{ user.username }}</p>
-          <a href="{% url 'users:logout' %}" class="right grey-text text-lighten-3">Logout</a>
+      <ul>
+        <li><p class="right grey-text text-lighten-3">{{ user.username }}</p></li>
+        <li><a href="{% url 'users:logout' %}" class="right grey-text text-lighten-3">Logout</a></li>
+      </ul>
+          
+          
           {% else %}
       <ul class="right">
         <li><a href="{% url 'users:login' %}" class="right grey-text text-lighten-3">Login   </a></li>
