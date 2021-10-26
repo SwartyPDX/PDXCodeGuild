@@ -1,6 +1,6 @@
 #Creating calendar views using code from https://github.com/huiwenhw/django-calendar/tree/master/cal
 
-from django.forms import ModelForm, DateInput
+from django.forms import ModelForm, DateInput, TextInput, Textarea
 from .models import Event
 
 class EventForm(ModelForm):
@@ -10,6 +10,7 @@ class EventForm(ModelForm):
     widgets = {
       'start_time': DateInput(attrs={'type': 'datetime-local'}, format='%Y-%m-%dT%H:%M'),
       'end_time': DateInput(attrs={'type': 'datetime-local'}, format='%Y-%m-%dT%H:%M'),
+      'desc': Textarea(attrs={'class':"textbox"})
     }
     fields = '__all__'
 

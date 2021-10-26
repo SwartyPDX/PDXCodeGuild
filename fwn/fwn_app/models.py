@@ -24,9 +24,8 @@ class Idea(models.Model):
         return self.name
 
 class Event(models.Model):
-    title = models.CharField('Title', help_text='Title',max_length=40)
-    desc = models.CharField('Description', help_text='Description',blank=True, null=True, max_length=400)
-    date = models.DateField('Day of the event', help_text='Day of the event', )
+    title = models.CharField('Title', max_length=40)
+    desc = models.CharField('Description',blank=True, null=True, max_length=400)
     # start = models.TimeField('Start time', help_text='Start time', default='12:00')
     start_time = models.DateTimeField(default=datetime.now())
     end_time = models.DateTimeField(default=datetime.now())

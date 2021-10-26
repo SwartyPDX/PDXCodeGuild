@@ -1,9 +1,21 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="http://schema.org/Article">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script>
+    function start() {
+      gapi.load('auth2', function() {
+        auth2 = gapi.auth2.init({
+          client_id: 'YOUR_CLIENT_ID.apps.googleusercontent.com',
+          // Scopes to request in addition to 'profile' and 'email'
+          //scope: 'additional_scope'
+        });
+      });
+    }
+  </script>
   <title>FWN</title>
   <link rel="icon" href="{% static 'bones.ico' %}">
   <!-- CSS  -->
@@ -27,6 +39,7 @@
       <ul class="right">
         <li><a href="{% url 'users:login' %}" class="right grey-text text-lighten-3">Login   </a></li>
         <li><a href="{% url 'users:register' %}" class="right grey-text text-lighten-3">Register</a></li>
+        <li><button id="signinButton">Sign in with Google</button></li>
       </ul>
         {% endif %}
         <a href="#" data-target="nav-mobile" class="sidenav-trigger grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">menu</i></a>
@@ -59,6 +72,13 @@
         </div>
       </footer>
 <script src="{% static 'materialize.js' %}"></script>
+<script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+<script>
+  $('#signinButton').click(function() {
+    // signInCallback defined in step 6.
+    auth2.grantOfflineAccess().then(signInCallback);
+  });
+</script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.parallax');
