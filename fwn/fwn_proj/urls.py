@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('fwn_app.urls', namespace='Friends with Neighbors')),
     path('users/', include('users.urls')),
+    path('accounts/', include('allauth.urls')),
 ]
 
 if settings.DEBUG:
