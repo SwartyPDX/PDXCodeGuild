@@ -19,10 +19,6 @@ from .models import *
 from .utils import Calendar
 from .forms import EventForm
 
-
-# Google Calendar API
-
-
 class CalendarView(generic.ListView):
     model = Event
     template_name = 'fwn_app/cal.html'
