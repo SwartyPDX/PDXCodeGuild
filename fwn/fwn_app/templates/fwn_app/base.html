@@ -4,9 +4,10 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="google-signin-client_id" content="DBSCapstone.apps.googleusercontent.com">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
   <script>
-    function start() {
+function start() {
       gapi.load('auth2', function() {
         auth2 = gapi.auth2.init({
           client_id: 'YOUR_CLIENT_ID.apps.googleusercontent.com',
@@ -15,6 +16,26 @@
         });
       });
     }
+function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+
+}
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+  // Get Profile for logged in user
+if (auth2.isSignedIn.get()) {
+    var profile = auth2.currentUser.get().getBasicProfile();
+    console.log('ID: ' + profile.getId());
+    console.log('Full Name: ' + profile.getName());
+    console.log('Given Name: ' + profile.getGivenName());
+    console.log('Family Name: ' + profile.getFamilyName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail());
+}
   </script>
   <title>FWN</title>
   <link rel="icon" href="{% static 'bones.ico' %}">
@@ -32,6 +53,7 @@
       <ul>
         <li><p class="right grey-text text-lighten-3">{{ user.username }}</p></li>
         <li><a href="{% url 'users:logout' %}" class="right grey-text text-lighten-3">Logout</a></li>
+        <li><a href="#" onclick="signOut();">Sign out</a></li>
       </ul>
           
           

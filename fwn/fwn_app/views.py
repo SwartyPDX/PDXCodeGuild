@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404,redirect
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from calendar import HTMLCalendar, calendar, month_name
@@ -8,9 +8,12 @@ from django.utils.safestring import mark_safe
 from django.views import generic
 import calendar
 import requests
-from googleapiclient import *
+from googleapiclient import discovery
 from google.oauth2.credentials import Credentials
 from requests.structures import CaseInsensitiveDict
+import httplib2
+from oauth2client import client
+import google_auth_oauthlib.flow
 
 from .models import *
 from .utils import Calendar
@@ -19,15 +22,7 @@ from .forms import EventForm
 
 # Google Calendar API
 
-combined_calendar_data = []
-# CLIENT_SECRET_FILE=
-# API_NAME = 'calendar'
-# API_VERSION='v3'
-# SCOPES = ['https://www.googleapis.com/auth/calendar.readonly','https://www.googleapis.com/auth/calendar','https://www.googleapis.com/auth/calendar.readonly']
 
-# service = Create_
-
-#Creating calendar views using code from https://github.com/huiwenhw/django-calendar/tree/master/cal
 class CalendarView(generic.ListView):
     model = Event
     template_name = 'fwn_app/cal.html'
