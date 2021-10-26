@@ -7,11 +7,25 @@ from datetime import datetime , timedelta, date
 from django.utils.safestring import mark_safe
 from django.views import generic
 import calendar
+import requests
+from googleapiclient import *
+from google.oauth2.credentials import Credentials
+from requests.structures import CaseInsensitiveDict
 
 from .models import *
 from .utils import Calendar
 from .forms import EventForm
 
+
+# Google Calendar API
+
+combined_calendar_data = []
+# CLIENT_SECRET_FILE=
+# API_NAME = 'calendar'
+# API_VERSION='v3'
+# SCOPES = ['https://www.googleapis.com/auth/calendar.readonly','https://www.googleapis.com/auth/calendar','https://www.googleapis.com/auth/calendar.readonly']
+
+# service = Create_
 
 #Creating calendar views using code from https://github.com/huiwenhw/django-calendar/tree/master/cal
 class CalendarView(generic.ListView):
@@ -86,24 +100,8 @@ def household(request, profile):
     })
    
 
-# def calendar(request, year, month):
-#     uuid= User
-#     month = month.capitalize()
-#     month_num = list(month_name).index(month)
-#     month_num=int(month_num)
-#     now= datetime.now()
-#     current_year=now.year
-#     cal= HTMLCalendar().formatmonth(year, month_num)
-#     return render(request, "fwn_app/cal.html",
-#     {
-#         "year" : year,
-#         "month" : month,
-#         "uuid" : uuid,
-#         "cal":cal,
-#         "current_year":current_year
-#     })
 
-def idealist(request):
+def ideaList(request):
     return render(request, "fwn_app/idea.html",
     {
         'idea':Idea.objects.all(),

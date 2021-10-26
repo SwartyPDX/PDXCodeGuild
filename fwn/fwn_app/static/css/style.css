@@ -60,4 +60,8 @@ footer.page-footer {
   opacity: .1;
 }
 form {
-  max-width: 400px;}
+  max-width: 60vw;}
+.textbox {
+  width: 60vw;
+  height: 200px;
+}
