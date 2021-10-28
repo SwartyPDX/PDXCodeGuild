@@ -5,12 +5,13 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 # Create your models here.
-class House(models.Model):
-    house = models.CharField(max_length=25)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='house')
-    member=models.ForeignKey("Member",related_name="house", on_delete=models.PROTECT)
-    def __str__(self):
-        return f'The {self.house} Family'
+#Future Household management
+# class House(models.Model):
+#     house = models.CharField(max_length=25)
+#     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='house')
+#     member=models.ForeignKey("Member",related_name="house", on_delete=models.PROTECT)
+#     def __str__(self):
+#         return f'The {self.house} Family'
 
 class Idea(models.Model):
     name = models.CharField(max_length=40)
@@ -19,7 +20,7 @@ class Idea(models.Model):
     upper_age = models.IntegerField(default=110)
     lower_age = models.IntegerField(default=18)
     event = models.ManyToManyField('Event','idea')
-    members = models.ManyToManyField('House','idea')
+    user = models.ForeignKey(User, on_delete=models.DO_NOTHING , null=True, related_name='idea')
     def __str__(self):
         return self.name
 
@@ -29,7 +30,7 @@ class Event(models.Model):
     # start = models.TimeField('Start time', help_text='Start time', default='12:00')
     start_time = models.DateTimeField(default=datetime.now())
     end_time = models.DateTimeField(default=datetime.now())
-    rsvp = models.ManyToManyField('Member','event', blank=True)
+    user = models.ForeignKey(User, on_delete=models.DO_NOTHING , null=True, related_name='event')
 
     @property
     def get_html_url(self):
@@ -41,10 +42,3 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
-class Member(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='member')
-    first=models.CharField(max_length=25)
-    last = models.CharField(max_length=25)
-    age = models.PositiveIntegerField()
-    tag = models.ForeignKey("Tag",related_name="member", on_delete=models.PROTECT, null=True, blank=True)
-    

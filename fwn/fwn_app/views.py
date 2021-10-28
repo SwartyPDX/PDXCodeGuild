@@ -83,12 +83,14 @@ def index(request):
     print(ideas["ideas"])
     return render(request, 'fwn_app/index.html', ideas)
 
-def household(request, profile):
-    return render(request, "fwn_app/house.html",
-    {
-        'house':House.objects.all(),
+
+#Future Household mgmt page
+# def household(request, profile):     
+#     return render(request, "fwn_app/house.html",
+#     {
+#         'house':House.objects.all(),
         
-    })
+#     })
    
 
 

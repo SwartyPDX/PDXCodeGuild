@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/Article">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="google-signin-client_id" content="DBSCapstone.apps.googleusercontent.com">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script>
+function start() {
+      gapi.load('auth2', function() {
+        auth2 = gapi.auth2.init({
+          client_id: 'YOUR_CLIENT_ID.apps.googleusercontent.com',
+          // Scopes to request in addition to 'profile' and 'email'
+          //scope: 'additional_scope'
+        });
+      });
+    }
+function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+
+}
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+  // Get Profile for logged in user
+if (auth2.isSignedIn.get()) {
+    var profile = auth2.currentUser.get().getBasicProfile();
+    console.log('ID: ' + profile.getId());
+    console.log('Full Name: ' + profile.getName());
+    console.log('Given Name: ' + profile.getGivenName());
+    console.log('Family Name: ' + profile.getFamilyName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail());
+}
+  </script>
+  <title>FWN</title>
+  <link rel="icon" href="{% static 'bones.ico' %}">
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<body  class= "green lighten-3">
+    <nav class="blue-grey darken-4" role="navigation">
+      <div class="nav-wrapper">
+        <p class="brand-logo center grey-text text-lighten-3">{% block title %}{% endblock %}</p>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">menu</i></a>
+        <!-- For large Screens -->
+        <ul class="left hide-on-med-and-down white-text"> 
+          <li><a href="/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">home</i></a></li>
+          <li><a href="/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">calendar_today</i></a></li>
+          <li><a href="/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">account_circle</i></a></li>
+        </ul>
+        <!-- For Small Screens -->
+        <ul id="nav-mobile" class="sidenav grey-text text-lighten-3">
+          <li><a href="/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">home</i></a></li>
+          <li><a href="/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">calendar_today</i></a></li>
+          <li><a href="/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">account_circle</i></a></li>
+        </ul>
+      </div>
+    </nav>
+
+
+    {% block content %}
+    {% endblock %}
+    <br>
+    <br>
+    <br>
+    <footer class="page-footer blue-grey lighten-4">
+        <div class="footer-copyright">
+          <div class="container grey-text text-darken-4">
+          Made by <a class="grey-text text-darken-4" href="#">Swarty</a>
+          </div>
+        </div>
+      </footer>
+<script src="{% static 'materialize.js' %}"></script>
+<script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+<script>
+  $('#signinButton').click(function() {
+    // signInCallback defined in step 6.
+    auth2.grantOfflineAccess().then(signInCallback);
+  });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.parallax');
+  var instances = M.Parallax.init(elems);
+});
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
+</script>
+
+</body>
+</html>

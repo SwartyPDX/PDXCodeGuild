@@ -48,11 +48,12 @@ if (auth2.isSignedIn.get()) {
 <body  class= "green lighten-3">
     <nav class="blue-grey darken-4" role="navigation">
       <div class="nav-wrapper">
+        <div class='container'>
         <p class="brand-logo center grey-text text-lighten-3">{% block title %}{% endblock %}</p>
           {% if user.is_authenticated %}
       <ul>
         <li><p class="right grey-text text-lighten-3">{{ user.username }}</p></li>
-        <li><a href="{% url 'users:logout' %}" class="right grey-text text-lighten-3">Logout</a></li>
+        <li><a href="{% url 'users:logout' %}" class="right grey-text text-lighten-3">Sign out</a></li>
         <li><a href="#" onclick="signOut();">Sign out</a></li>
       </ul>
           
@@ -77,6 +78,7 @@ if (auth2.isSignedIn.get()) {
           <li><a href="/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">calendar_today</i></a></li>
           <li><a href="/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">account_circle</i></a></li>
         </ul>
+        </div>
       </div>
     </nav>
 
