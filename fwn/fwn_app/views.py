@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from calendar import HTMLCalendar, calendar, month_name
-from datetime import datetime , timedelta, date
+from datetime import datetime, timedelta, date
 from django.utils.safestring import mark_safe
 from django.views import generic
 import calendar
@@ -95,8 +95,8 @@ def index(request):
 
 
 def ideaList(request):
-    return render(request, "fwn_app/idea.html",
-    {
-        'idea':Idea.objects.all(),
-        
-    })
+    ideas=Idea.objects.all()
+    context = {
+        'ideas':ideas,
+    }
+    return render(request, "fwn_app/idea.html", context)

@@ -1,9 +1,25 @@
 {% extends 'fwn_app/base.html' %}
 {% load static %}
 {% block content %}
-Current Year: {{current_year}}
+
 <div class='container'>
-  {{ cal|safe}}
+  {% if user.is_authenticated %}
+<main>
+    <div class='row'>
+    {% for idea in ideas %}  
+        <div class="grid-example col s12 m6 l4">           
+                <span class= 'flow-text'>{{ idea.desc }}</span>
+                <p> {% for tag in idea.tag.all %}{{ tag }}, {% endfor %}</p>
+        </div>
+    {% endfor %}
+    </div>
+    
+</main>
+{% else %}
+<main>
+    <h1>Please login or register</h1>
+</main>
+{% endif %}
 </div>
 
 
