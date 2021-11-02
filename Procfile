@@ -1,3 +1,3 @@
-web:gunicorn fwn_proj.wsgi
-release:python manage.py migrate
+web:cd fwn && gunicorn fwn_proj.wsgi
+release:cd fwn && python manage.py migrate
 
