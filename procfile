@@ -1,2 +1,2 @@
 web: cd fwn && gunicorn fwn_proj.wsgi
-release: cd fwn && python manage.py migrategit 
+release: cd fwn && python manage.py migrate
