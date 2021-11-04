@@ -85,10 +85,10 @@ def index(request):
 
 
 
-def member(request, profile):     
-    return render(request, "fwn_app/house.html",
+def member(request):     
+    return render(request, "account/member.html",
     {
-        'user':UserProfile.objects.all(),
+        'user':User.objects.all(),
         
     })
    

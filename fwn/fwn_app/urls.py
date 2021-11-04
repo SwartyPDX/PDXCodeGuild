@@ -14,5 +14,6 @@ urlpatterns = [
     # path('<house>',views.household, name='house'),
     path('event/new/', views.event, name='event_new'),
     path('event/edit/<event_id>/', views.event, name='event_edit'),
-    path('accounts/profile/',views.index, name='accounts')
+    path('accounts/profile/',views.index, name='accounts'),
+    path('ideas',views.ideaList, name='ideas')
 ]

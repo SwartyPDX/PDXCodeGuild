@@ -4,12 +4,21 @@
 
 <div class='container'>
   {% if user.is_authenticated %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 <main>
+
     <div class='row'>
     {% for idea in ideas %}  
-        <div class="grid-example col s12 m6 l4">           
-                <span class= 'flow-text'>{{ idea.desc }}</span>
+        <div class="col s12 m6 l3">    
+                <p class= 'flow-text'>{{ idea.name }}</p>       
+                <h6>{{ idea.desc }}</h6>
                 <p> {% for tag in idea.tag.all %}{{ tag }}, {% endfor %}</p>
+                <h5> Events</h5>
+                <ul>
+                {% for event in idea.event.all %}
+                <li> {{ event.get_html_url|safe }}   {{  event.start_time.date  }}</li>
+                {% endfor %}
+                </ul>
         </div>
     {% endfor %}
     </div>

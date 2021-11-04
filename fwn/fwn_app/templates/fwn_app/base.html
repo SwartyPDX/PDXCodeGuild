@@ -37,14 +37,14 @@
         <!-- For large Screens -->
         <ul class="left hide-on-med-and-down white-text"> 
           <li><a href="/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">home</i></a></li>
-          <li><a href="calendar/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">calendar_today</i></a></li>
-          <li><a href="/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">account_circle</i></a></li>
+          <li><a href="{% url 'fwn_app:calendar' %}" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">calendar_today</i></a></li>
+          <li><a href="{% url 'fwn_app:member' %}" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">account_circle</i></a></li>
         </ul>
         <!-- For Smll Screens -->
-        <ul id="nav-mobile" class="sidenav grey-text text-lighten-3">
+        <ul id="nav-mobile" class="sidenav grey-text text-lighten-3 blue-grey darken-4">
           <li><a href="/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">home</i></a></li>
-          <li><a href="calendar/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">calendar_today</i></a></li>
-          <li><a href="member/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">account_circle</i></a></li>
+          <li><a href="{% url 'fwn_app:calendar' %}" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">calendar_today</i></a></li>
+          <li><a href="{% url 'fwn_app:member' %}" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">account_circle</i></a></li>
         </ul>
         </div>
       </div>
