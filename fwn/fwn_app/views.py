@@ -84,13 +84,13 @@ def index(request):
     return render(request, 'fwn_app/index.html', ideas)
 
 
-#Future Household mgmt page
-# def household(request, profile):     
-#     return render(request, "fwn_app/house.html",
-#     {
-#         'house':House.objects.all(),
+
+def member(request, profile):     
+    return render(request, "fwn_app/house.html",
+    {
+        'user':UserProfile.objects.all(),
         
-#     })
+    })
    
 
 

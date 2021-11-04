@@ -8,7 +8,7 @@
   <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> -->
   
   <title>FWN</title>
-  <link rel="icon" href="{% static 'bones.ico' %}">
+  <link rel="icon" href="{% static 'friend.ico' %}">
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -22,7 +22,7 @@
         <p class="brand-logo center grey-text text-lighten-3">{% block title %}{% endblock %}</p>
           {% if user.is_authenticated %}
       <ul class="right">
-        <li><p>{{ user.username }}</p></li>
+        <li><p class="right grey-text text-lighten-3">{{ user.username }}</p></li>
         <li><a href="{% url 'account_logout' %}" class="grey-text text-lighten-3">Sign out</a></li>
       </ul>
           
@@ -44,7 +44,7 @@
         <ul id="nav-mobile" class="sidenav grey-text text-lighten-3">
           <li><a href="/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">home</i></a></li>
           <li><a href="calendar/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">calendar_today</i></a></li>
-          <li><a href="/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">account_circle</i></a></li>
+          <li><a href="member/" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">account_circle</i></a></li>
         </ul>
         </div>
       </div>

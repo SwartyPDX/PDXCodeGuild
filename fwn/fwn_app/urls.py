@@ -8,7 +8,7 @@ app_name = 'fwn_app' # for namespacing
 urlpatterns = [
     path('', views.index, name='index'),
     path('calendar/', views.CalendarView.as_view(), name='calendar'),
-    path('idea/', views.ideaList, name='ideaList'),
+    path('member/', views.member, name='member'),
 
     # path('<int:year>/<str:month>',views.calendar, name='calendar'),
     # path('<house>',views.household, name='house'),
