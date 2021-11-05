@@ -52,18 +52,16 @@ function initMap() {
       'postal_code': 'short_name',
     };
     const getAddressComp = function(type) {
-      for (const component of place.address_components) {
+      for (const component of place) {
         if (component.types[0] === type) {
           return component[addressNameFormat[type]];
         }
       }
       return '';
     };
-    document.getElementById('id_street_address').value = getAddressComp('street_number') + ' ' +
-      getAddressComp('route');
-    document.getElementById('id_city').value = getAddressComp('locality');
-    document.getElementById('id_state').value = getAddressComp('administrative_area_level_1');
-    document.getElementById('id_zipcode').value = getAddressComp('postal_code');
+    document.getElementById('id_street_address').value = getAddressComp('name') + ' ' +
+      getAddressComp('formatted_address');
+    
 
 
 

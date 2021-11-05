@@ -17,7 +17,7 @@ import google_auth_oauthlib.flow
 
 from .models import *
 from .utils import Calendar
-from .forms import EventForm
+from .forms import *
 
 class CalendarView(generic.ListView):
     model = Event
@@ -85,13 +85,24 @@ def index(request):
 
 
 
-def member(request):     
-    return render(request, "account/member.html",
-    {
-        'user':User.objects.all(),
+# def member(request):     
+#     return render(request, "account/member.html",
+#     {
+#         'user':User.objects.all(),
         
-    })
-   
+#     })
+def member(request, user_id=None):
+    instance = UserProfile()
+    if user_id:
+        instance = get_object_or_404(UserProfile, pk=user_id)
+    else:
+        instance = UserProfile()
+
+    form = UserForm(request.POST or None, instance=instance)
+    if request.POST and form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('account:member'))
+    return render(request, 'account/member.html', {'form': form, 'GOOGLE_API_KEY':settings.GOOGLE_API_KEY}) 
 
 
 def ideaList(request):
