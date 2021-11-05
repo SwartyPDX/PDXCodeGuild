@@ -2,8 +2,8 @@
 
 function initMap() {
   const componentForm = [
-    'location',
-    'locality',
+    'id_street_address',
+    'id_city',
     'administrative_area_level_1',
     'country',
     'postal_code',
@@ -23,7 +23,7 @@ function initMap() {
     map: map,
     draggable: false
   });
-  const autocompleteInput = document.getElementById('location');
+  const autocompleteInput = document.getElementById('id_street_address');
   const autocomplete = new google.maps.places.Autocomplete(autocompleteInput, {
     fields: ["address_components", "geometry", "name"],
     types: ["address"],
@@ -58,11 +58,11 @@ function initMap() {
       }
       return '';
     };
-    document.getElementById('location').value = getAddressComp('street_number') + ' ' +
+    document.getElementById('id_street_address').value = getAddressComp('street_number') + ' ' +
       getAddressComp('route');
     for (const component of componentForm) {
-      // Location field is handled separately above as it has different logic.
-      if (component !== 'location') {
+      // id_street_address field is handled separately above as it has different logic.
+      if (component !== 'id_street_address') {
         document.getElementById(component).value = getAddressComp(component);
       }
     }

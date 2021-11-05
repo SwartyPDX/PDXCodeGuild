@@ -11,7 +11,7 @@ import requests
 from googleapiclient import discovery
 from google.oauth2.credentials import Credentials
 from requests.structures import CaseInsensitiveDict
-import httplib2
+import fwn_proj.settings as settings
 from oauth2client import client
 import google_auth_oauthlib.flow
 
@@ -63,7 +63,7 @@ def event(request, event_id=None):
     if request.POST and form.is_valid():
         form.save()
         return HttpResponseRedirect(reverse('fwn_app:calendar'))
-    return render(request, 'fwn_app/event.html', {'form': form})
+    return render(request, 'fwn_app/event.html', {'form': form, 'GOOGLE_API_KEY':settings.GOOGLE_API_KEY})
 
 
 
