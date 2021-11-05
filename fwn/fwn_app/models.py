@@ -72,7 +72,7 @@ class Event(models.Model):
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING , null=True, related_name='event')
     street_address  = models.CharField('Street Address', null=True, max_length=40)
     city = models.CharField('City', null=True, max_length=40)
-    State  = models.CharField('State', null=True, max_length=16)
+    state  = models.CharField('State', null=True, max_length=16)
     zipcode  = models.CharField('Zipcode', null=True, max_length=10)
     def __str__(self):
         return self.title

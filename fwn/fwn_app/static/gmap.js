@@ -3,7 +3,7 @@
 function initMap() {
   const componentForm = [
     'id_street_address',
-    'id_city',
+    'locality',
     'administrative_area_level_1',
     'country',
     'postal_code',
@@ -25,6 +25,7 @@ function initMap() {
   });
   const autocompleteInput = document.getElementById('id_street_address');
   const autocomplete = new google.maps.places.Autocomplete(autocompleteInput, {
+    componentRestrictions: { country: ["us", "ca"] },
     fields: ["address_components", "geometry", "name"],
     types: ["address"],
   });
@@ -60,12 +61,23 @@ function initMap() {
     };
     document.getElementById('id_street_address').value = getAddressComp('street_number') + ' ' +
       getAddressComp('route');
-    for (const component of componentForm) {
-      // id_street_address field is handled separately above as it has different logic.
-      if (component !== 'id_street_address') {
-        document.getElementById(component).value = getAddressComp(component);
-      }
-    }
+    document.getElementById('id_city').value = getAddressComp('locality');
+    document.getElementById('id_State').value = getAddressComp('administrative_area_level_1');
+    document.getElementById('id_zipcode').value = getAddressComp('postal_code');
+
+
+
+
+
+
+
+
+    // for (const component of componentForm) {
+    //   // location field is handled separately above as it has different logic.
+    //   if (component !== 'location') {
+    //     document.getElementById(component).value = getAddressComp(component);
+    //   }
+    // }
   }
 
   function renderAddress(place) {

@@ -33,16 +33,13 @@ Event
       <tr><td colspan="2"><img class="sb-title-icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/location_pin/v5/24px.svg" alt="">
         <span class="sb-title">Approximate location</span></td></tr>
       <tr><td colspan="2" class="map" id="map"></td></tr>
-      <tr><td colspan="2"><input type="text" placeholder="Street or Intersection" id="location" /></td></tr>
-      <tr><td colspan="2"><input type="text" placeholder="City" id="locality" /></td></tr>
-      <tr><td colspan="2"><input type="text" class="half-input" placeholder="State/Province" id="administrative_area_level_1" />
-        <input type="text" class="half-input" placeholder="Zip/Postal code" id="postal_code" /><button type="submit" class="btn btn-info right"> Submit </button></td></tr>
+      <tr><td colspan="2"></td></tr>
     </table>
     
   </form>      
   </div>
   <div class="map" id="map"></div>
-  <script src="https://maps.googleapis.com/maps/api/js?key={{GOOGLE_API_KEY}}&libraries=places&callback=initMap&channel=Wilsonville" async defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key={{GOOGLE_API_KEY}}&libraries=places&callback=initMap" async defer></script>
 </div>
 
 
