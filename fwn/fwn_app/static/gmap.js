@@ -27,7 +27,7 @@ function initMap() {
   const autocomplete = new google.maps.places.Autocomplete(autocompleteInput, {
     componentRestrictions: { country: ["us", "ca"] },
     fields: ["address_components", "geometry", "name"],
-    types: ["address"],
+    types: [],
   });
   autocomplete.addListener('place_changed', function() {
     marker.setVisible(false);
@@ -62,7 +62,7 @@ function initMap() {
     document.getElementById('id_street_address').value = getAddressComp('street_number') + ' ' +
       getAddressComp('route');
     document.getElementById('id_city').value = getAddressComp('locality');
-    document.getElementById('id_State').value = getAddressComp('administrative_area_level_1');
+    document.getElementById('id_state').value = getAddressComp('administrative_area_level_1');
     document.getElementById('id_zipcode').value = getAddressComp('postal_code');
 
 
