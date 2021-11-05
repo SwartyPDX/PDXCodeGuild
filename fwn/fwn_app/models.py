@@ -17,12 +17,16 @@ import hashlib
 #         return f'The {self.house} Family'
 
 class UserProfile(models.Model):
-    user = models.ForeignKey(User, on_delete=CASCADE, related_name='profile')
+    user = models.ForeignKey(User, on_delete=CASCADE, blank=True, related_name='profile')
     about_me = models.TextField(null=True)
     street_address = models.CharField('Location', null=True, max_length=40)
 
     def __unicode__(self):
-        return "{}'s profile".format(self.user.username)
+        return self.user
+    @property
+    def get_html_url(self):
+        url = reverse('fwn_app:member', args=(self.id,)) #self or User?
+        return f'<a href="{url}" class="grey-text text-lighten-3"><i class="material-icons grey-text text-lighten-3">account_circle</i></a>'
 
     class Meta:
         db_table = 'user_profile'
@@ -37,8 +41,8 @@ class UserProfile(models.Model):
         if len(g_uid):
             return "https://lh3.googleusercontent.com/a-/<g_uid>=s100"
 
-        return "http://www.gravatar.com/avatar/{}?s=40".format(
-            hashlib.md5(self.user.email).hexdigest())
+        # return "http://www.gravatar.com/avatar/{}?s=40".format(
+        #     hashlib.md5(self.user.email).hexdigest())
 
     def account_verified(self):
         """
@@ -52,6 +56,9 @@ class UserProfile(models.Model):
 
 
 User.profile = property(lambda u: UserProfile.objects.get_or_create(user=u)[0])
+
+
+
 class Idea(models.Model):
     name = models.CharField(max_length=40)
     tag = models.ManyToManyField('Tag', 'ideas')

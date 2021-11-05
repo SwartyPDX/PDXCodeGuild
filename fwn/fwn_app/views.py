@@ -7,13 +7,7 @@ from datetime import datetime, timedelta, date
 from django.utils.safestring import mark_safe
 from django.views import generic
 import calendar
-import requests
-from googleapiclient import discovery
-from google.oauth2.credentials import Credentials
-from requests.structures import CaseInsensitiveDict
 import fwn_proj.settings as settings
-from oauth2client import client
-import google_auth_oauthlib.flow
 
 from .models import *
 from .utils import Calendar
@@ -101,7 +95,7 @@ def member(request, user_id=None):
     form = UserForm(request.POST or None, instance=instance)
     if request.POST and form.is_valid():
         form.save()
-        return HttpResponseRedirect(reverse('account:member'))
+        return HttpResponseRedirect(reverse('fwn_app:member'))
     return render(request, 'account/member.html', {'form': form, 'GOOGLE_API_KEY':settings.GOOGLE_API_KEY}) 
 
 

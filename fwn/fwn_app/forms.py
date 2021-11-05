@@ -34,5 +34,5 @@ class UserForm(ModelForm):
       # 'state': TextInput(attrs={'class':"administrative_area_level_1"}),
       # 'zipcode': TextInput(attrs={'class':"postal_code"}),
     }
-    fields = '__all__'
+    fields = 'about_me','street_address'
 
