@@ -19,6 +19,7 @@ import hashlib
 class UserProfile(models.Model):
     user = models.ForeignKey(User, on_delete=CASCADE, related_name='profile')
     about_me = models.TextField(null=True)
+    street_address = models.CharField('Location', null=True, max_length=40)
 
     def __unicode__(self):
         return "{}'s profile".format(self.user.username)
